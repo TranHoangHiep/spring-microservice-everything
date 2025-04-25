@@ -1,0 +1,37 @@
+accounts.zip
+.idea
+
+HELP.md
+accounts/target/
+accounts/!.mvn/wrapper/maven-wrapper.jar
+accounts/!**/src/main/**/target/
+accounts/!**/src/test/**/target/
+
+### STS ###
+accounts/.apt_generated
+accounts/.classpath
+accounts/.factorypath
+accounts/.project
+accounts/.settings
+accounts/.springBeans
+accounts/.sts4-cache
+
+### IntelliJ IDEA ###
+accounts/.idea
+accounts/*.iws
+accounts/*.iml
+accounts/*.ipr
+
+### NetBeans ###
+accounts/nbproject/private/
+accounts/nbbuild/
+accounts/dist/
+accounts/nbdist/
+accounts/.nb-gradle/
+accountsbuild/
+accounts!**/src/main/**/build/
+accounts!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
