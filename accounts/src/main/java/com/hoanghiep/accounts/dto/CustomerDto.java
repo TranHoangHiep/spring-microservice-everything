@@ -3,7 +3,7 @@ package com.hoanghiep.accounts.dto;
 import lombok.Data;
 
 @Data
-public class CustomersDto {
+public class CustomerDto {
 
     private String name;
     private String email;
