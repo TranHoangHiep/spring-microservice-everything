@@ -1,10 +1,13 @@
 package com.hoanghiep.accounts.service.impl;
 
 import com.hoanghiep.accounts.constants.AccountsConstants;
+import com.hoanghiep.accounts.dto.AccountsDto;
 import com.hoanghiep.accounts.dto.CustomerDto;
 import com.hoanghiep.accounts.entity.Accounts;
 import com.hoanghiep.accounts.entity.Customer;
 import com.hoanghiep.accounts.exception.CustomerAlreadyExistsException;
+import com.hoanghiep.accounts.exception.ResourceNotFoundException;
+import com.hoanghiep.accounts.mapper.AccountMapper;
 import com.hoanghiep.accounts.mapper.CustomerMapper;
 import com.hoanghiep.accounts.repository.AccountsRepository;
 import com.hoanghiep.accounts.repository.CustomerRepository;
@@ -47,5 +50,19 @@ public class AccountsServiceImpl implements IAccountsService {
         newAccount.setCreatedAt(LocalDateTime.now());
         newAccount.setCreatedBy("Anonymous");
         return newAccount;
+    }
+
+    @Override
+    public CustomerDto fetchAccount(String mobileNumber) {
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                () -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)
+        );
+
+        Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
+                () -> new ResourceNotFoundException("Account", "customerId", customer.getCustomerId().toString())
+        );
+        CustomerDto customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
+        customerDto.setAccountsDto(AccountMapper.mapToAccountsDto(accounts, new AccountsDto()));
+        return customerDto;
     }
 }
