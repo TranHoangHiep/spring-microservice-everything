@@ -82,7 +82,10 @@ public class AccountsController {
             ),
             @ApiResponse(
                     responseCode = "500",
-                    description = "HTTP Status 500 INTERNAL SERVER ERROR"
+                    description = "HTTP Status 500 INTERNAL SERVER ERROR",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
             )
     })
     @PutMapping("/update")
