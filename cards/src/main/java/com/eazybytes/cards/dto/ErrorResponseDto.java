@@ -1,4 +1,4 @@
-package com.hoanghiep.accounts.dto;
+package com.eazybytes.cards.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -7,30 +7,31 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
+@Data @AllArgsConstructor
 @Schema(
         name = "ErrorResponse",
         description = "Schema to hold error response information"
 )
-@Data @AllArgsConstructor
 public class ErrorResponseDto {
 
     @Schema(
-            description = "Api path invoked by client"
+            description = "API path invoked by client"
     )
-    private String apiPath;
+    private  String apiPath;
 
     @Schema(
-            description = "HTTP status code of the response"
+            description = "Error code representing the error happened"
     )
     private HttpStatus errorCode;
 
     @Schema(
-            description = "Error message of the response"
+            description = "Error message representing the error happened"
     )
-    private String errorMessage;
+    private  String errorMessage;
 
     @Schema(
-            description = "Error time of the response"
+            description = "Time representing when the error happened"
     )
     private LocalDateTime errorTime;
+
 }
