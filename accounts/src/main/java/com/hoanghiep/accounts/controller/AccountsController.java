@@ -45,8 +45,9 @@ public class AccountsController {
                     responseCode = "500",
                     description = "HTTP Status 500 INTERNAL SERVER ERROR",
                     content = @Content(
-
-            ))
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
     })
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createAccount(@Valid @RequestBody CustomerDto customerDto) {
