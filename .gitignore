@@ -35,3 +35,4 @@ accounts!**/src/test/**/build/
 ### VS Code ###
 .vscode/
 
+configserver/target
