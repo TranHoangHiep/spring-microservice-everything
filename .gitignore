@@ -36,3 +36,4 @@ accounts!**/src/test/**/build/
 .vscode/
 
 configserver/target
+loans/target
