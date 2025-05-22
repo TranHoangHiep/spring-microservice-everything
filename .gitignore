@@ -37,3 +37,7 @@ accounts!**/src/test/**/build/
 
 configserver/target
 loans/target
+.DS_Store
+eurekaserver/target
+loans/target
+loans/target/classes loans/target/generated-sources loans/target/generated-test-sources loans/target/test-classes
